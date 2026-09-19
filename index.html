@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Time Your Travel</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <section class="calculator-card">
+        <header class="heading">
+          <h1>Time Your Travel</h1>
+        </header>
+
+        <div class="conversion-section">
+          <div class="controls-grid">
+            <div class="field from-field">
+              <div class="box-value-box">
+                <label>From:</label>
+                <div id="fromDisplay" class="to-display">Distance</div>
+              </div>
+            </div>
+
+            <button id="swapBtn" class="swap-btn" type="button" aria-label="Swap conversion direction"></button>
+
+            <div class="field to-field">
+              <div class="box-value-box">
+                <label>To:</label>
+                <div id="toSelect" class="to-display">Time</div>
+              </div>
+            </div>
+
+            <div class="field value-field">
+              <div class="box-value-box input-box">
+                <label id="valueLabel" for="valueInput">Distance (miles):</label>
+                <input id="valueInput" type="number" min="0" step="0.01" placeholder="0 mi" />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="filters-section">
+          <div class="field transport-field">
+            <div class="box-select-box">
+              <label for="transportSelect">Transportation (optional):</label>
+              <div class="select-wrap">
+                <select id="transportSelect">
+                  <option value="">All</option>
+                </select>
+              </div>
+            </div>
+          </div>
+
+          <div class="field sort-field">
+            <div class="box-select-box">
+              <label for="sortSelect">Sort By:</label>
+              <div class="select-wrap">
+                <select id="sortSelect">
+                  <option value="ascending">Ascending</option>
+                  <option value="descending">Descending</option>
+                </select>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="actions-section">
+          <button id="calculateBtn" type="button">Calculate</button>
+          <button id="resetBtn" type="button" class="secondary">Reset</button>
+        </div>
+
+        <section id="results" class="results" aria-live="polite">
+          <div class="empty-state">Choose a value and press Calculate.</div>
+        </section>
+      </section>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

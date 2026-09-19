@@ -1,0 +1,360 @@
+:root {
+  --bg: #f9d7e3;
+  --bg-alt: #f2bfd6;
+  --white: #ffffff;
+  --text: #2b1c26;
+  --text-light: #2b1c2280;
+  --text-subtle: #2b1c2214;
+  --muted: #6c5864;
+  --accent: #ff2f92;
+  --accent-light: #f06292;
+  --error: #d32f2f;
+  --white-light: #ffffff1f;
+  --white-dim: #ffffffb3;
+  --shadow: #f0629233;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  background: var(--bg);
+  color: var(--text);
+}
+
+body {
+  min-height: 100vh;
+  padding: 24px 20px 40px;
+}
+
+.app-shell {
+  width: min(100%, 980px);
+  margin: 0 auto;
+}
+
+
+.heading {
+  margin-bottom: 22px;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(2rem, 4vw, 2.8rem);
+  line-height: 1.1;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+.controls-grid {
+  display: grid;
+  grid-template-columns: minmax(180px, 1.4fr) 42px minmax(180px, 1.4fr) minmax(180px, 1.2fr);
+  gap: 12px 12px;
+  align-items: stretch;
+}
+
+.conversion-section {
+  margin-bottom: 16px;
+}
+
+.filters-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+  margin-bottom: 12px;
+}
+
+.actions-section {
+  display: grid;
+  grid-template-columns: 1fr 0.7fr;
+  gap: 10px;
+  margin-bottom: 28px;
+}
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.box-value-box,
+.box-select-box {
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  background: var(--white-light);
+  padding: 7px 12px 9px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  min-height: 56px;
+}
+
+.box-select-box {
+  min-height: 52px;
+}
+
+.from-field {
+  grid-column: 1;
+  min-width: 0;
+}
+
+.to-field {
+  grid-column: 3;
+  min-width: 0;
+}
+
+.value-field {
+  grid-column: 4;
+  min-width: 0;
+}
+
+
+.transport-field {
+  min-width: 0;
+}
+
+.swap-btn {
+  grid-column: 2;
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  border: 1px solid var(--accent);
+  background: var(--accent);
+  color: white;
+  font-size: 1.2rem;
+  font-weight: 400;
+  cursor: pointer;
+  box-shadow: 0 10px 20px var(--shadow);
+  display: block;
+  position: relative;
+  line-height: 1;
+  padding: 0;
+  letter-spacing: -0.08em;
+  justify-self: center;
+  align-self: center;
+  margin: 0;
+}
+
+.swap-btn::before {
+  content: "⇄";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  line-height: 1;
+  font-weight: 400;
+  color: white;
+}
+
+.to-display {
+  min-height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  color: var(--text);
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  line-height: 1.1;
+}
+
+.box-value-box label,
+.box-select-box label {
+  font-weight: 400;
+  color: var(--text);
+  font-size: 0.75rem;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
+.input-box input,
+.field select {
+  width: 100%;
+  border: none;
+  background: transparent;
+  color: var(--text);
+  font-size: clamp(0.9rem, 1.2vw, 1.15rem);
+  outline: none;
+  min-height: 20px;
+  font-weight: 400;
+}
+
+.input-box input::placeholder {
+  color: var(--text-light);
+}
+
+.select-wrap {
+  position: relative;
+  width: 100%;
+}
+
+.select-wrap::after {
+  content: "▾";
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  color: var(--accent-light);
+  font-size: 1rem;
+  pointer-events: none;
+}
+
+.select-wrap select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 26px;
+  font-size: 1rem;
+  font-weight: 500;
+  min-height: 22px;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: var(--accent-light);
+  box-shadow: 0 0 0 3px var(--white-light);
+}
+
+button {
+  appearance: none;
+  border: 1px solid var(--accent);
+  border-radius: 16px;
+  padding: 0 14px;
+  font-family: inherit;
+  font-weight: 400;
+  font-size: clamp(0.95rem, 1.4vw, 1.25rem);
+  cursor: pointer;
+  background: var(--accent);
+  color: white;
+  box-shadow: 0 10px 20px var(--shadow);
+  height: 56px;
+  line-height: 1.1;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#calculateBtn,
+#resetBtn {
+  width: 100%;
+}
+
+button.secondary {
+  background: var(--white-light);
+  color: var(--text);
+  border: 1px solid var(--accent);
+  box-shadow: none;
+}
+
+.results {
+  margin-top: 28px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(360px, 1fr));
+  gap: 16px;
+}
+
+.result-card {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 14px;
+  background: var(--white);
+  border: 1px solid var(--text-subtle);
+  border-radius: 16px;
+  padding: 16px 18px;
+  min-height: 72px;
+}
+
+.warning-card {
+  border: 1px solid var(--error);
+  box-shadow: 0 0 0 1px #d32f2f14;
+}
+
+.result-left {
+  display: flex;
+  align-items: center;
+}
+
+.transport-copy {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 4px;
+}
+
+.transport-name {
+  font-weight: 400;
+  font-size: 1rem;
+}
+
+.result-value {
+  font-weight: 400;
+  font-size: 1.05rem;
+  text-align: right;
+}
+
+.result-value > div:first-child {
+  font-weight: 700;
+}
+
+.unit-label {
+  font-size: 0.78em;
+  font-weight: 400;
+  opacity: 0.8;
+  vertical-align: baseline;
+}
+
+.warning {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--warning);
+  font-size: 0.74rem;
+  font-weight: 400;
+  font-style: italic;
+  white-space: nowrap;
+  line-height: 1.2;
+}
+
+.warning-icon {
+  display: inline-block;
+  color: var(--warning);
+  font-size: 0.9rem;
+  font-weight: 400;
+  line-height: 1;
+  font-style: italic;
+}
+
+.empty-state {
+  grid-column: 1 / -1;
+  background: var(--white-dim);
+  border: 1px dashed var(--text-subtle);
+  border-radius: 14px;
+  padding: 20px;
+  color: var(--muted);
+  text-align: center;
+}
+
+@media (max-width: 640px) {
+  body {
+    padding: 20px 16px;
+  }
+
+  .controls-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .filters-section {
+    grid-template-columns: 1fr;
+  }
+
+  .actions-section {
+    grid-template-columns: 1fr;
+  }
+
+  button {
+    width: 100%;
+  }
+}
